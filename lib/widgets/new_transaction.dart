@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatefulWidget{
+class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
 
-  const NewTransaction({Key? key, required this.addNewTransaction}) : super(key: key);
+  const NewTransaction({Key? key, required this.addNewTransaction})
+      : super(key: key);
 
- @override
+  @override
   _NewTransactionState createState() => _NewTransactionState();
 }
 
@@ -16,9 +17,9 @@ class _NewTransactionState extends State<NewTransaction> {
   void submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
-    if(enteredTitle.isEmpty || enteredAmount <= 0){
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
-    }else{
+    } else {
       widget.addNewTransaction(enteredTitle, enteredAmount);
       Navigator.of(context).pop();
     }
@@ -29,24 +30,24 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
               controller: titleController,
               onSubmitted: (_) => submitData(),
             ),
             TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
+              decoration: const InputDecoration(labelText: 'Amount'),
               controller: amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
             ),
             TextButton(
               onPressed: submitData,
-              child: Text('Add Transaction',
+              child: const Text('Add Transaction',
                   style: TextStyle(color: Colors.purple)),
             )
           ],

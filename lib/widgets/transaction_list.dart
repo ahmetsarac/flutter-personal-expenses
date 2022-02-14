@@ -4,11 +4,12 @@ import 'package:personal_expenses/models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
-  TransactionList({Key? key, required this.transactions}) : super(key: key);
+  const TransactionList({Key? key, required this.transactions})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: ListView.builder(
         itemBuilder: (context, index) {
@@ -16,11 +17,11 @@ class TransactionList extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 10.0,
                     horizontal: 15.0,
                   ),
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                     vertical: 10.0,
                     horizontal: 15.0,
                   ),
@@ -31,7 +32,7 @@ class TransactionList extends StatelessWidget {
                   )),
                   child: Text(
                     '\$${transactions[index].amount.toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.purple),
@@ -42,14 +43,14 @@ class TransactionList extends StatelessWidget {
                   children: [
                     Text(
                       transactions[index].title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       DateFormat.yMMMMd().format(transactions[index].date),
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ],
                 )
